@@ -26,9 +26,12 @@
     <h2>2.라이프 사이클</h2>
     <p>리액트는 life cycle 이라는 생명주기가 있습니다.
      컴포넌트에 따라 마운트, 업데이트, 언마운트 3가지가 존재합니다
-    </p>    
-    ![life](https://user-images.githubusercontent.com/36911316/114522030-ea427100-9c7d-11eb-8143-72046ad1618c.jpeg)
-     <h4>마운트</h4>
+    </p>
+
+
+![life](https://user-images.githubusercontent.com/36911316/114523349-2d511400-9c7f-11eb-8281-f303fcb5e55d.png)
+
+<h4>마운트</h4>
      <p>컴포넌트의 인스턴스가 생성되어 DOM 상에 삽입될때 아래의 순서대로 실행됩니다.</p>
      <ul>
          <li>constructor</li>
@@ -74,3 +77,7 @@
         <li>componentWillUnmount</li>
     </ul>    
     <p><strong>componentWillUnmount</strong><br>DOM에서 제거할때 실행되며 didmount에서 등록한 이벤트,타이머, 직접 생성한 DOM이 있다면 여기서 제거 작업을 해야 합니다.</p>
+
+
+
+
