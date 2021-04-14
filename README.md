@@ -3,6 +3,7 @@
     <ul>
         <li>1.리액트의 이해</li>
         <li>2.라이프 사이클</li>
+        <li>3.메모이제이션</li>
     </ul>
     <h3>1.리액트의 이해</h3>
     <p>
@@ -27,7 +28,7 @@
     <p>리액트는 life cycle 이라는 생명주기가 있습니다.
      컴포넌트에 따라 마운트, 업데이트, 언마운트 3가지가 존재합니다
     </p>
-
+<h3>class lifecycle </h3>
 
 ![life](https://user-images.githubusercontent.com/36911316/114523349-2d511400-9c7f-11eb-8281-f303fcb5e55d.png)
 
@@ -78,6 +79,48 @@
     </ul>    
     <p><strong>componentWillUnmount</strong><br>DOM에서 제거할때 실행되며 didmount에서 등록한 이벤트,타이머, 직접 생성한 DOM이 있다면 여기서 제거 작업을 해야 합니다.</p>
 
+<h3>hooks lifecycle</h3>
+
+![hook](https://user-images.githubusercontent.com/36911316/114667763-d90b6a00-9d3a-11eb-92d7-a1d4ae0df063.png)
+
+ <p>hook에서 class의 라이프사이클 효과를 주기 위하여 useEffect가 존재한다.<br>
+        이는 mount의 DidMount, update의 DidUpdate, unomunt의 WillUnmount 3가지 기능을
+        합친 효과를 보인다.
+</p>
+
+````
+        useEffect(()=>{
+            //적용할 코드
+        })
+        //mount, update 둘다 실행됩니다.
+````
+    
+````
+        useEffect(()=>{
+            //적용할 코드
+        },[])
+        //mount 될때만 실행됩니다.
+````
+    
+````
+        useEffect(()=>{
+            //적용할 코드
+        },[변경될 state])
+        //[]안에 있는 state가 변경될때 실행됩니다.
+````
+    
+````
+        useEffect(()=>{
+            //적용할 코드
+            return()=>{
+                //뒷정리 함수
+            }
+        },[])
+        //unmount될때 실행됩니다.
+````
+
+
+    
 
 
 
