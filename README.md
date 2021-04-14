@@ -119,7 +119,49 @@
         //unmount될때 실행됩니다.
 ````
 
+<h3>메모이제이션</h3>
+    <p>react는 리렌더링에 따른 최적화를 위해 메모이제이션 사용을 위한 api가 존재합니다</p>
+    <ul>
+        <li>React.memo</li>
+        <li>useMemo</li>
+        <li>useCallback</li>
+    </ul>
+    <h4>React.memo</h4>
+    <p>React.memo는 HOC(Higher-Order Component)이다<br>
+        HOC는 컴포넌트를 인자로 받아 새로운 컴포넌트를 다시 return해주는 함수입니다.
+    </p>
+    <p>컴포넌트 자체를 메모이제이션 하기 때문에 사용처 로는 해당 컴포넌트의 <strong>props에 따른 캐싱이다</strong></p>
+    <p>부모 컴포넌트가 리렌더링 되면 자식도 같이 리렌더링 되는데 이때 해당 컴포넌트의
+        props가 변경되지 않았다면 메모이제이션 된 값을 return하게 된다.
+    </p>
+    
+````
+    const TestComponent = React.memo((props) => {
+        return (/*컴포넌트 렌더링 코드*/)}
+    );
+````
 
+<br>
+<h4>useMemo</h4>
+<p>useMemo는 값을 메모이제이션 한다. 두번째 인자로 배열에 의존 인자를 등록하여 변경여부를 확인한다.<br>
+        빈 배열을 사용할 경우 렌더링시 항상 값을 새롭게 계산하여 return 한다.
+</p>
+
+````
+    const memoTest = useMemo(() => memoTestFunc(a), [a]);
+    //a의 변경 여부에 따라 메모이제이션을 수행한다.
+````
+
+<h4>useCallback</h4>
+   <p>useMemo와 사용법과 기능도 동일하다. 차이점으로는 함수를 메모이제이션 합니다.<br>
+        react는 리렌더링 될때 해당 컴포넌트 js파일을 재실행 하는거기 때문에 함수도 다시 만들어집니다.<br>
+        하지만 단순히 함수의 재생성 때문에 사용하고 하는거면 아닙니다.
+        브라우저는 충분히 빠르기 때문에 함수의 고비용, 참조 동일성이 지켜질때 사용해야 합니다.
+   </p>
+   
+````
+    const callbackTest = useMemo(() => callbackTestFunc(a), [a]);
+````
     
 
 
